@@ -1,2 +1,2 @@
 IBM
-Hand Written Digit Recognition
+A Novel Method Detection Of  HandWritten Digit Recognition
