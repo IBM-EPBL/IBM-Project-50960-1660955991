@@ -1,0 +1,87 @@
+<html>
+
+<head>
+  <title>HandWritten Digit Recognition WebApp</title>
+
+  <meta name="viewport" content="width=device-width">
+  <!-- GoogleFont -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Calistoga|Josefin+Sans:400,700|Pacifico&display=swap" rel="stylesheet">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+  <!-- fontawesome -->
+
+  <script src="https://kit.fontawesome.com/b3aed9cb07.js" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  
+
+</style>
+
+</head>
+
+<script>
+  function preview() {
+    frame.src=URL.createObjectURL(event.target.files[0]);
+}
+
+    $(document).ready(function() {
+          $('#clear_button').on('click', function() {
+              $('#image').val('');
+              $('#frame').attr('src',"");
+            });
+        });
+
+</script>
+
+<body>
+  <section align='center'>
+  <h1 class="welcome">IBM PROJECT
+  <div align="'center" id="team_id">TEAM ID :PNT2022TMID35172 </div>
+  </h1>
+  </section>
+  
+  <section id="title">
+    <h4 class="heading">Handwritten Digit Recognition Web Application</h4>
+    <br><br>
+      <p>
+        The website is designed to predict the handwritten digit.
+      </p>
+    <p>
+        The handwritten digit recognition is the ability of computers to recognize human handwritten digits.It is a hard task for the machine
+		 because handwritten digits are not perfect and can be made with many different flavors.The handwritten digit recognition is the solution
+		  to this problem which uses the image of a digit and recognizes the digit present in the image. </p>
+
+      <br>
+    <p> Hence, our handwritten digit recognition  web-app is a real-time applications.
+        MNIST data set is widely used for this recognition process and it has 70000 handwritten digits.
+        We use Artificial neural networks particularly cnn to train these images and build a deep learning model.
+        Web application is created where the user can upload an image of a handwritten digit.
+        This image is analyzed by the model and the detected result is returned on to UI</p>
+
+  </section>
+
+  <section id="content" align='center'>
+
+        <div class="leftside">
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+        <label>Select a image:</label>
+        <input id="image" type="file" name="image" accept="image/png, image/jpeg" onchange="preview()"><br><br>
+          <img id="frame" src="" width="200px" height="200px"/>
+          <div class="buttons_div">
+            <button type="submit" class="btn btn-dark" id="predict_button">Predict Number</button>
+            <button type="button" class="btn btn-dark" id="clear_button">&nbsp Clear &nbsp</button>
+          </div>
+        </form>
+        </div>
+  </section>
+
+</body>
+
+</html>
